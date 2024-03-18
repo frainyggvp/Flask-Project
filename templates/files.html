@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Файлы
+{% endblock %}
+
+{% block body %}
+<div class="container" xmlns="http://www.w3.org/1999/html">
+    <h1>Все файлы: {{ files|length }}</h1>
+    <h3>Доступные расширения: 'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif', 'exe',
+                      'html', 'css', 'pptx', 'docx', "xlsx", 'py', 'zip',
+                      'rar'</h3>
+    <h3>Максимальный вес файла: 1024MB</h3>
+
+    {% if message %}
+    <h5 class="message">{{ message }}</h5>
+    {% endif %}
+
+   <form method=post enctype=multipart/form-data>
+       <input maxlength=50 class="custom-file-upload" type=file name=file>
+       <input maxlength=50 name="password" class="custom-file-upload" type="password" placeholder="Пароль">
+       <input maxlength=300 name="comment" class="custom-file-upload" type="text" placeholder="Комментарий">
+       <input class="custom-file-upload" type=submit value="Загрузить">
+    </form>
+
+    <br>
+
+    {% if files|length > 0 %}
+    {% for file in files %}
+    <div class="element">
+        <p>Имя: {{ file.name }}</p>
+        <p>Вес: {{ file.length }}MB</p>
+        <p>Комментарий: {{ file.comment }}</p>
+        <p>Дата: {{ file.date }}</p>
+        <a class="link_open" href="/files/download/{{ file.name }}">Скачать</a>
+        <a class="link_delete" href="/files/delete/{{ file.name }}">Удалить</a>
+    </div>
+    {% endfor %}
+    {% else %}
+    <h5>У нас еще нет файлов на сайте =(</h5>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Добавление записи
+{% endblock %}
+
+{% block body %}
+<div>
+    <h1>Добавление записи</h1>
+    <form method="post" class="create_post">
+        <input maxlength=100 type="text" name="title" id="title" class="form" placeholder="Название"><br>
+        <textarea maxlength=300 name="intro" id="intro" class="form" placeholder="Анонс"></textarea><br>
+        <textarea name="text" id="text" class="form_text" placeholder="Основной текст"></textarea><br>
+        <input type="submit" class="link_accept" value="Сохранить"><br>
+    </form>
+</div>
+{% endblock %}

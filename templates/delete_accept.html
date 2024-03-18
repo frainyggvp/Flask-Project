@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Удаление {{file_name}}
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Точно удалить файл {{file_name}}?</h1>
+    {% if message %}
+    <h5 class="message">{{ message }}</h5>
+    {% endif %}
+    <form method="POST">
+        <input maxlength=50 type="password" name="password_delete" placeholder="Пароль" class="custom-file-upload">
+        <input type='submit' class="link_delete" value="Удалить навсегда">
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Посты
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Все записи</h1>
+
+    {% if articles|length > 0 %}
+    {% for el in articles %}
+    <div class="element">
+        <h2>{{ el.title }}</h2>
+        <p>{{ el.intro }}</p>
+        <p>Дата создания: {{ el.date }}</p>
+        <a class ="link_open" href="/news/{{ el.id }}">Открыть</a>
+    </div>
+    {% endfor %}
+    {% else %}
+    <p>У нас еще нет новостей на сайте =(</p>
+    {% endif %}
+</div>
+{% endblock %}

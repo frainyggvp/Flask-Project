@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ru" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+<div class="header">
+    <h2 class="header-name">Jambo</h2
+      <nav class="header_menu">
+          <a type="text" href="/"><b>Записи</b></a>
+          <a type="text" href="/files"><b>Файлы</b></a>
+          <a class="link_accept" href="/create-article">Новая запись</a>
+          <p class="about">Works on Flask <br> Created by frainyggvp</p>
+      </nav>
+</div>
+
+<div class="content">
+    {% block body %}{% endblock %}
+</div>
+
+</body>
+</html>

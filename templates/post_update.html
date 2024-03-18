@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Обновление записи
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Обновление записи</h1>
+    <form method="post" class="create_post">
+        <input maxlength=100 type="text" name="title" id="title" class="form" value="{{article.title}}" placeholder="Название"><br>
+        <textarea maxlength=300 name="intro" id="intro" class="form" placeholder="Анонс">{{article.title}}</textarea><br>
+        <textarea name="text" id="text" class="form_text" placeholder="Основной текст">{{article.text}}</textarea><br>
+        <input type="submit" class="link_accept" value="Обновить"><br>
+    </form>
+</div>
+{% endblock %}
